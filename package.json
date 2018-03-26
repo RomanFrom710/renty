@@ -1,0 +1,23 @@
+{
+  "name": "renty",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --experimental-modules ./",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomanFrom710/renty.git"
+  },
+  "author": "Roman Chaley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RomanFrom710/renty/issues"
+  },
+  "homepage": "https://github.com/RomanFrom710/renty#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
