@@ -8,7 +8,7 @@ const belarusCoordinates = {
   'bounds[rt][long]': 27.8101046516287,
 };
 
-export default async function scanPage(pageNumber = 1) {
+export default async function (pageNumber = 1) {
   const params = {
     ...belarusCoordinates,
     page: pageNumber,
