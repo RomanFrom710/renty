@@ -1,13 +1,14 @@
 {
-  "name": "parsers",
+  "name": "core",
   "version": "0.0.1",
-  "description": "",
+  "description": "Scanners and parsers for rent sites",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Roman Chaley",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.2"
   }
 }
