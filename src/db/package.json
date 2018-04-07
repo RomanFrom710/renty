@@ -1,11 +1,14 @@
 {
   "name": "db",
   "version": "0.0.1",
-  "description": "",
+  "description": "DB models",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Roman Chaley",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "mongoose": "^5.0.13",
+    "mongoose-timestamp": "^0.6.0"
+  }
 }
