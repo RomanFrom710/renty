@@ -92,5 +92,7 @@ module.exports = {
     ],
 
     "no-underscore-dangle": ["error", { "allow": ["_id"] }], // mongodb _id field
+
+    "class-methods-use-this": 0, // stupid rule
   }
 };
