@@ -89,6 +89,8 @@ module.exports = {
         "argsIgnorePattern": "^__",
         "varsIgnorePattern": "^__"
       }
-    ]
+    ],
+
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }], // mongodb _id field
   }
 };
