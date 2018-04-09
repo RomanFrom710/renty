@@ -1,7 +1,7 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
 
-import saveApartment from './saver';
+import saveApartment from '../utils/saver';
 
 /**
  * Parser should convert page url content into apartment object.
@@ -48,6 +48,10 @@ export default class BaseParser {
    * @returns {Promise} Saver result.
    */
   saveApartment(apartment) {
-    return saveApartment(apartment);
+    try {
+      return saveApartment(apartment);
+    } catch (err) {
+      // todo: log error
+    }
   }
 }
