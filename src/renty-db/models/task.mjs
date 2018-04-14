@@ -5,10 +5,10 @@ import {taskConsumer, taskStatus} from '../enums';
 
 const taskSchema = new Schema({
   consumer: {type: String, required: true, enum: Object.values(taskConsumer)},
-  payload: {type: String, required: true},
+  payload: {type: Object, required: true},
   priority: {type: Number, default: 1},
 
-  status: {type: String, required: true, enum: Object.values(taskStatus)},
+  status: {type: String, enum: Object.values(taskStatus), default: taskStatus.open},
   message: String,
 });
 taskSchema.plugin(timestamps); // Adding createdAt and updatedAt

@@ -81,13 +81,6 @@ async@2.1.4:
   dependencies:
     lodash "^4.14.0"
 
-aws-sdk@0.9.7-pre.8:
-  version "0.9.7-pre.8"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-0.9.7-pre.8.tgz#9f2aa082d83bc08c834ef33fd27bbf181ce0d341"
-  dependencies:
-    xml2js "0.2.4"
-    xmlbuilder latest
-
 axios@^0.18.0:
   version "0.18.0"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.18.0.tgz#32d53e4851efdc0a11993b6cd000789d70c05102"
@@ -251,15 +244,6 @@ css-what@2.1:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/css-what/-/css-what-2.1.0.tgz#9467d032c38cfaefb9f2d79501253062f87fa1bd"
 
-db@:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/db/-/db-1.0.6.tgz#620022e7aa4a0dc19f4f84d5da79e7096fe77d0e"
-  dependencies:
-    aws-sdk "0.9.7-pre.8"
-    ds "1.2.0"
-    mysql "0.9.4"
-    redis "0.6.7"
-
 debug@2.6.9, debug@^2.6.8, debug@^2.6.9:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -341,10 +325,6 @@ domutils@^1.5.1:
   dependencies:
     dom-serializer "0"
     domelementtype "1"
-
-ds@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/ds/-/ds-1.2.0.tgz#39b38942a53b149e7e27a8930acdad193c86260a"
 
 entities@^1.1.1, entities@~1.1.1:
   version "1.1.1"
@@ -603,12 +583,6 @@ has@^1.0.1:
   dependencies:
     function-bind "^1.0.2"
 
-hashish@0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/hashish/-/hashish-0.0.4.tgz#6d60bc6ffaf711b6afd60e426d077988014e6554"
-  dependencies:
-    traverse ">=0.2.4"
-
 hosted-git-info@^2.1.4:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.6.0.tgz#23235b29ab230c576aab0d4f13fc046b0b038222"
@@ -859,12 +833,6 @@ mute-stream@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
 
-mysql@0.9.4:
-  version "0.9.4"
-  resolved "https://registry.yarnpkg.com/mysql/-/mysql-0.9.4.tgz#f62b72f0af537fc511b694d256fdcdb86b2e9951"
-  dependencies:
-    hashish "0.0.4"
-
 natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
@@ -1038,10 +1006,6 @@ readable-stream@^2.0.2, readable-stream@^2.2.2:
     string_decoder "~1.1.1"
     util-deprecate "~1.0.1"
 
-redis@0.6.7:
-  version "0.6.7"
-  resolved "https://registry.yarnpkg.com/redis/-/redis-0.6.7.tgz#0f17f913468a5cb2bf0864e4d56669d058668d46"
-
 regexp-clone@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/regexp-clone/-/regexp-clone-0.0.1.tgz#a7c2e09891fdbf38fbb10d376fb73003e68ac589"
@@ -1114,10 +1078,6 @@ safe-buffer@~5.1.0, safe-buffer@~5.1.1:
 safer-buffer@^2.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
-
-sax@>=0.4.2:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
 "semver@2 || 3 || 4 || 5", semver@^5.1.0, semver@^5.3.0:
   version "5.5.0"
@@ -1245,10 +1205,6 @@ tmp@^0.0.33:
   dependencies:
     os-tmpdir "~1.0.2"
 
-traverse@>=0.2.4:
-  version "0.6.6"
-  resolved "https://registry.yarnpkg.com/traverse/-/traverse-0.6.6.tgz#cbdf560fd7b9af632502fed40f918c157ea97137"
-
 type-check@~0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/type-check/-/type-check-0.3.2.tgz#5884cab512cf1d355e3fb784f30804b2b520db72"
@@ -1289,16 +1245,6 @@ write@^0.2.1:
   resolved "https://registry.yarnpkg.com/write/-/write-0.2.1.tgz#5fc03828e264cea3fe91455476f7a3c566cb0757"
   dependencies:
     mkdirp "^0.5.1"
-
-xml2js@0.2.4:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.2.4.tgz#9a5b577fa1e6cdf8923d5e1372f7a3188436e44d"
-  dependencies:
-    sax ">=0.4.2"
-
-xmlbuilder@latest:
-  version "9.0.7"
-  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-9.0.7.tgz#132ee63d2ec5565c557e20f4c22df9aca686b10d"
 
 yallist@^2.1.2:
   version "2.1.2"

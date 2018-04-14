@@ -8,6 +8,6 @@
   "author": "Roman Chaley",
   "license": "MIT",
   "dependencies": {
-    "db": ""
+    "renty-db": "0.0.1"
   }
 }
