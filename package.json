@@ -29,6 +29,7 @@
   },
   "private": true,
   "workspaces": [
+    "src/renty-config",
     "src/renty-core",
     "src/renty-db",
     "src/renty-tasks"
