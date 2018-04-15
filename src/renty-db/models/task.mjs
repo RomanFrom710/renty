@@ -9,7 +9,7 @@ const taskSchema = new Schema({
   priority: {type: Number, default: 1},
 
   status: {type: String, enum: Object.values(taskStatus), default: taskStatus.open},
-  message: String,
+  result: String,
 });
 taskSchema.plugin(timestamps); // Adding createdAt and updatedAt
 

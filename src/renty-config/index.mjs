@@ -8,23 +8,9 @@ const convict = convict({
     env: "NODE_ENV",
   },
   db: {
-    host: {
-      doc: "Database host name/IP",
+      doc: "Database connection string",
       format: '*',
       default: 'mongodb://localhost:27017/renty',
-      env: 'DB_HOST',
-    },
-    username: {
-      doc: "Database name",
-      format: '*',
-      default: 'user',
-      env: 'DB_USERNAME',
-    },
-    password: {
-      doc: "Database password",
-      format: '*',
-      default: 'password',
-      env: 'DB_PASSWORD',
-    },
+      env: 'DB_CONNECTION',
   },
 });

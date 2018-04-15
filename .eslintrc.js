@@ -30,6 +30,15 @@ module.exports = {
       }
     ],
 
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true,
+        "optionalDependencies": true,
+        "peerDependencies": false
+      }
+    ],
+
     "indent": [
       "error",
       2

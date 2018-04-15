@@ -3,11 +3,31 @@
   "version": "0.0.1",
   "description": "Task queue interface",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
+  },
+  "jest": {
+    "testMatch": [
+      "**/?(*.)test.?(m)js"
+    ],
+    "moduleFileExtensions": [
+      "mjs",
+      "js"
+    ],
+    "transform": {
+      "\\.mjs$": "babel-jest"
+    },
+    "transformIgnorePatterns": []
   },
   "author": "Roman Chaley",
   "license": "MIT",
   "dependencies": {
     "renty-db": "0.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.3",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "jest": "^22.4.3",
+    "mongodb-memory-server": "^1.7.3"
   }
 }
