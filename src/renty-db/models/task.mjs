@@ -1,9 +1,9 @@
-import {Schema, model} from 'mongoose';
+import mongoose from 'mongoose';
 import timestamps from 'mongoose-timestamp';
 
 import {taskConsumer, taskStatus} from '../enums';
 
-const taskSchema = new Schema({
+const taskSchema = new mongoose.Schema({
   consumer: {type: String, required: true, enum: Object.values(taskConsumer)},
   payload: {type: Object, required: true},
   priority: {type: Number, default: 1},
@@ -13,4 +13,4 @@ const taskSchema = new Schema({
 });
 taskSchema.plugin(timestamps); // Adding createdAt and updatedAt
 
-export default model('task', taskSchema);
+export default mongoose.model('task', taskSchema);

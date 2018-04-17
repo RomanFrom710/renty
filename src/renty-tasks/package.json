@@ -5,19 +5,6 @@
   "scripts": {
     "test": "jest"
   },
-  "jest": {
-    "testMatch": [
-      "**/?(*.)test.?(m)js"
-    ],
-    "moduleFileExtensions": [
-      "mjs",
-      "js"
-    ],
-    "transform": {
-      "\\.mjs$": "babel-jest"
-    },
-    "transformIgnorePatterns": []
-  },
   "author": "Roman Chaley",
   "license": "MIT",
   "dependencies": {
@@ -29,5 +16,17 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "jest": "^22.4.3",
     "mongodb-memory-server": "^1.7.3"
+  },
+  "jest": {
+    "testMatch": [
+      "**/?(*.)test.?(m)js"
+    ],
+    "moduleFileExtensions": [
+      "mjs",
+      "js"
+    ],
+    "transform": {
+      "\\.mjs$": "babel-jest"
+    }
   }
 }

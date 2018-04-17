@@ -1,15 +1,15 @@
-import {Schema, model} from 'mongoose';
+import mongoose from 'mongoose';
 import timestamps from 'mongoose-timestamp';
 
-import Snapshot from './snapshot';
+//import Snapshot from './snapshot';
 import {features} from '../enums';
 
-const photoSchema = new Schema({
+const photoSchema = new mongoose.Schema({
   origin: String,
   preview: String,
 });
 
-const apartmentSchema = new Schema({
+const apartmentSchema = new mongoose.Schema({
   price: {type: Number, required: true},
   phones: {type: [String], required: true, index: true},
   url: {type: String, required: true},
@@ -33,7 +33,7 @@ const apartmentSchema = new Schema({
  * Get apartment history (array of snapshots).
  */
 function getHistory() {
-  return Snapshot.find({apartmentId: this._id});
+  //return Snapshot.find({apartmentId: this._id});
 }
 
 /**
@@ -48,4 +48,4 @@ apartmentSchema.methods.getHistory = getHistory;
 apartmentSchema.methods.findSiblings = findSiblings;
 
 export {apartmentSchema};
-export default model('apartment', apartmentSchema);
+export default mongoose.model('apartment', apartmentSchema);

@@ -4,7 +4,7 @@ import config from 'renty-config';
 import Apartment from './models/apartment';
 import Snapshot from './models/snapshot';
 import Task from './models/task';
-import enums from './enums';
+import * as enums from './enums';
 
 if (process.env.NODE_ENV !== 'test') {
   const connectionString = config.get('db');
@@ -17,7 +17,7 @@ if (process.env.NODE_ENV !== 'test') {
  * @param {String} connectionString MongoDB connection string.
  * @returns {Promise} MongoDB connection promise.
  */
-async function connect(connectionString) {
+function connect(connectionString) {
   return mongoose.connect(connectionString);
 }
 
