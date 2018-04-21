@@ -1,16 +1,34 @@
 {
   "name": "renty-core",
   "version": "0.0.1",
-  "description": "Scanners and parsers for rent sites",
+  "description": "Core package with parsing",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Roman Chaley",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
     "cheerio": "^1.0.0-rc.2",
-    "renty-db": "0.0.1",
-    "renty-tasks": "0.0.1"
+    "convict": "^4.2.0",
+    "renty-db": "0.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.3",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "jest": "^22.4.3"
+  },
+  "jest": {
+    "testMatch": [
+      "**/?(*.)test.?(m)js"
+    ],
+    "moduleFileExtensions": [
+      "mjs",
+      "js"
+    ],
+    "transform": {
+      "\\.mjs$": "babel-jest"
+    }
   }
 }

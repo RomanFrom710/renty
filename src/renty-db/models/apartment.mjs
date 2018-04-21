@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 import timestamps from 'mongoose-timestamp';
 
-//import Snapshot from './snapshot';
 import {features} from '../enums';
 
 const photoSchema = new mongoose.Schema({
@@ -33,7 +32,7 @@ const apartmentSchema = new mongoose.Schema({
  * Get apartment history (array of snapshots).
  */
 function getHistory() {
-  //return Snapshot.find({apartmentId: this._id});
+  return mongoose.model('snapshot').find({apartmentId: this._id});
 }
 
 /**
