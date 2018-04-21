@@ -4,7 +4,7 @@ import config from 'renty-config';
 import Apartment from './models/apartment';
 import Snapshot from './models/snapshot';
 import Task from './models/task';
-import * as enums from './enums';
+import enums from './enums';
 
 if (process.env.NODE_ENV !== 'test') {
   const connectionString = config.get('db');
@@ -21,10 +21,20 @@ function connect(connectionString) {
   return mongoose.connect(connectionString);
 }
 
+/**
+ * Let testing scripts disconnect when they want.
+ *
+ * @returns {Promise} MongoDB disconnection promise.
+ */
+function disconnect() {
+  return mongoose.disconnect();
+}
+
 export {
   Apartment,
   Snapshot,
   Task,
   enums,
   connect,
+  disconnect,
 };

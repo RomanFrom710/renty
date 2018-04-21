@@ -1,25 +1,28 @@
 import MongodbMemoryServer from 'mongodb-memory-server';
 
-import {connect, Task} from 'renty-db';
+import {connect, disconnect, Task} from 'renty-db';
 
-// May require additional time for downloading MongoDB binaries
-//jest.setTimeout(180000);
+let mongoServer;
 
 beforeAll(async () => {
-  const mongoServer = new MongodbMemoryServer();
+  mongoServer = new MongodbMemoryServer();
   const connectionString = await mongoServer.getConnectionString();
-  console.log(connectionString);
-  //jest.setTimeout(5000);
-  return connect(connectionString);
+  await connect(connectionString);
+}, 180000); // May require additional time for downloading MongoDB binaries
+
+afterAll(async () => {
+  await disconnect();
+  await mongoServer.stop();
 });
 
 describe('test stuff', () => {
-  // beforeAll(() => {
-  //   return Task.create({consumer: 'parse-worker', payload: {url: 'kek'}});
-  // });
- 
+  beforeAll(() => {
+    return Task.create({consumer: 'parse-worker', payload: {url: 'kek'}});
+  });
+
   it('finds added task', async () => {
-    const result = await Promise.resolve(5);
+    const result = await Task.count();
+    expect(result).toBe(1);
     console.log(result);
   });
 });
