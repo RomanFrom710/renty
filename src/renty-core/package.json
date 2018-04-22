@@ -3,14 +3,15 @@
   "version": "0.0.1",
   "description": "Core package with parsing",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:integration": "jest integration",
+    "test:unit": "jest unit"
   },
   "author": "Roman Chaley",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
     "cheerio": "^1.0.0-rc.2",
-    "convict": "^4.2.0",
     "renty-db": "0.0.1"
   },
   "devDependencies": {
@@ -20,9 +21,7 @@
     "jest": "^22.4.3"
   },
   "jest": {
-    "testMatch": [
-      "**/?(*.)test.?(m)js"
-    ],
+    "testMatch": ["<rootDir>/tests/**"],
     "moduleFileExtensions": [
       "mjs",
       "js"
