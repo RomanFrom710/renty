@@ -32,14 +32,14 @@ const apartmentSchema = new mongoose.Schema({
  * Get apartment history (array of snapshots).
  */
 function getHistory() {
-  return mongoose.model('snapshot').find({apartmentId: this._id});
+  return this.model('snapshot').find({apartmentId: this._id});
 }
 
 /**
  * Find apartments from the same author.
  */
 function findSiblings() {
-  return this.model('Apartment').find({phones: {$in: this.phones}});
+  return this.model('apartment').find({phones: {$in: this.phones}});
 }
 
 apartmentSchema.plugin(timestamps); // Adding createdAt and updatedAt

@@ -10,8 +10,8 @@ export default class BaseParser {
   /**
    * Parses apartment page and saves it to db.
    *
-   * @param {Object} $ Cheerio representation of the page.
-   * @param {String} url Page url to be parsed.
+   * @param {object} $ Cheerio representation of the page.
+   * @param {string} url Page url to be parsed.
    * @returns {Promise} ???????
    */
   async parsePage(__$, __url) {
@@ -22,7 +22,7 @@ export default class BaseParser {
    * Checks if the parser supports given url.
    *
    * @param url Page url to be checked.
-   * @returns {Boolean} Is the url supported.
+   * @returns {boolean} Is the url supported.
    */
   checkUrl(__url) {
     throw new Error('checkUrl method is not implemented!');
@@ -31,8 +31,8 @@ export default class BaseParser {
   /**
    * Downloads page and retutrns its cheerio representation.
    *
-   * @param {String} url Page url to be downloaded.
-   * @returns {Promise<Object>} Cheerio representation of the page.
+   * @param {string} url Page url to be downloaded.
+   * @returns {Promise<object>} Cheerio representation of the page.
    */
   async downloadPage(url) {
     const response = await axios.get(url);

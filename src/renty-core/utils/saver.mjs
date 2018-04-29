@@ -3,7 +3,7 @@ import {Apartment, Snapshot} from 'renty-db';
 /**
    * Saves apartment to db, handles snapshotting.
    *
-   * @param {Object} apartment Apartment to be saved.
+   * @param {object} apartment Apartment to be saved.
    * @returns {Promise} Saving result.
    */
 async function saveApartment(apartment) {
