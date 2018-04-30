@@ -25,7 +25,8 @@
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.10.0"
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-jest": "^21.15.1"
   },
   "private": true,
   "workspaces": [
@@ -35,7 +36,9 @@
   ],
   "babel": {
     "plugins": [
-      ["transform-es2015-modules-commonjs"]
+      [
+        "transform-es2015-modules-commonjs"
+      ]
     ]
   }
 }

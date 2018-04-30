@@ -2,26 +2,35 @@ import {Task, enums} from 'renty-db';
 
 /**
  * Adds task to the queue. If a task with the same payload has been already inserted,
- * does nothing.
+ * updates the priority.
  *
- * @returns {Promise} Task insertion promise.
  * @param {string} consumer Task consumer name.
  * @param {object} payload Payload for the task.
  * @param {number} priority Task priority (1 or greater).
+ * @returns {Promise<string>} Id of inserted or updated task.
  */
-export function insertTask(consumer, payload, priority = 1) {
+export async function insertTask(consumer, payload, priority = 1) {
   const query = {consumer, payload};
   const update = {
-    $setOnInsert: {consumer, payload, priority},
+    $set: {priority},
+    $setOnInsert: {consumer, payload},
+  };
+  const options = {
+    upsert: true,
+    rawResult: true,
+    new: true,
   };
 
-  // TODO: Figure out how to return boolean whether a new task was inserted or not.
-  return Task.updateOne(query, update);
+  const result = await Task.findOneAndUpdate(query, update, options);
+  if (!result.ok) {
+    throw new Error('Task insertion error'); // TODO: logger
+  }
+
+  return result.value.id.toString();
 }
 
 /**
- * Takes task for the consumer. Selects the oldest task with
- * the highest priority.
+ * Takes task for the consumer. Selects the oldest task with the highest priority.
  *
  * @param consumer Task consumer name.
  * @returns {Promise<Task>} A task for the consumer.
