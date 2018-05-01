@@ -1,4 +1,4 @@
-import {inMemoryServer, Task} from 'renty-db';
+import {inMemoryServer, enums, Task} from 'renty-db';
 import * as tasksQueue from '../tasks';
 
 // May require additional time for downloading MongoDB binaries
@@ -7,7 +7,7 @@ beforeAll(() => inMemoryServer.connect(), 180000);
 afterAll(() => inMemoryServer.disconnect());
 
 const testTask = {
-  consumer: 'parse-worker',
+  consumer: enums.taskConsumer.parser,
   payload: {url: 'http://google.com'},
   priority: 42,
 };
@@ -47,6 +47,54 @@ describe('tasks queue', () => {
 
       const tasks = await Task.find();
       expect(tasks.length).toBe(2);
+    });
+  });
+
+  describe('takeTask', () => {
+    it('returns null if there is no tasks left', async () => {
+      const task = await tasksQueue.takeTask(enums.taskConsumer.scanner);
+      expect(task).toBeNull();
+    });
+
+    it('takes the oldest task with the highest priority', async () => {
+      const tasks = [
+        Object.assign({}, testTask, {createdAt: new Date('2016'), priority: 2}),
+        Object.assign({}, testTask, {createdAt: new Date('2017'), priority: 1}),
+        Object.assign({}, testTask, {createdAt: new Date('2016'), priority: 1}),
+        Object.assign({}, testTask, {createdAt: new Date('2017'), priority: 2}),
+        Object.assign({}, testTask, {createdAt: new Date('2017'), priority: 3, consumer: enums.taskConsumer.scanner}),
+      ];
+      await Task.create(tasks);
+
+      const task = await tasksQueue.takeTask(testTask.consumer);
+      expect(task.priority).toBe(2);
+      expect(task.createdAt).toEqual(new Date('2016'));
+    });
+  });
+
+  describe('bumpPriority', () => {
+    let taskId;
+    beforeEach(async () => {
+      taskId = (await Task.create(testTask)).id.toString();
+    });
+
+    it('rejects if task was not found', () => {
+      const id = '590650500000000000000000'; // Generated from 2017 timestamp, so won't be repeated.
+      const bumpPromise = tasksQueue.bumpPriority(id);
+      return expect(bumpPromise).rejects.toEqual(new Error(`Task with id ${id} was not found.`));
+    });
+
+    it('increases priority by 1 by default', async () => {
+      await tasksQueue.bumpPriority(taskId);
+      const task = await Task.findOne();
+      expect(task.priority).toBe(testTask.priority + 1);
+    });
+
+    it('increases priority by provided step', async () => {
+      const step = 5;
+      await tasksQueue.bumpPriority(taskId, step);
+      const task = await Task.findOne();
+      expect(task.priority).toBe(testTask.priority + step);
     });
   });
 });

@@ -17,16 +17,11 @@ export async function insertTask(consumer, payload, priority = 1) {
   };
   const options = {
     upsert: true,
-    rawResult: true,
     new: true,
   };
 
-  const result = await Task.findOneAndUpdate(query, update, options);
-  if (!result.ok) {
-    throw new Error('Task insertion error'); // TODO: logger
-  }
-
-  return result.value.id.toString();
+  const upsertedTask = await Task.findOneAndUpdate(query, update, options);
+  return upsertedTask.id.toString();
 }
 
 /**
@@ -43,7 +38,7 @@ export function takeTask(consumer) {
     lean: true,
   };
 
-  return Task.findOneAndUpdate(query, update, options).exec();
+  return Task.findOneAndUpdate(query, update, options);
 }
 
 /**
@@ -51,10 +46,12 @@ export function takeTask(consumer) {
  *
  * @param {number} taskId Task id.
  * @param {number} step Value to be added to the task priority.
- * @return {promise} Task updating promise. Rejects if the task wasn't found.
+ * @return {Promise} Task updating promise. Rejects if the task wasn't found.
  */
 export async function bumpPriority(taskId, step = 1) {
   const update = {$inc: {priority: step}};
-  // TODO: reject when task isn't found
-  return Task.findByIdAndUpdate(taskId, update).exec();
+  const updatedTask = await Task.findByIdAndUpdate(taskId, update);
+  if (!updatedTask) {
+    throw new Error(`Task with id ${taskId} was not found.`);
+  }
 }

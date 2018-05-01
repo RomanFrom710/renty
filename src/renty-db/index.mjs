@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 import {env, config} from 'renty-config';
-import enums from './enums';
+import * as enums from './enums';
 import inMemoryServer from './in-memory-server';
 
 // Test scripts may want to use temporary in-memory database.
