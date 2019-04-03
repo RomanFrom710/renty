@@ -21,24 +21,11 @@
     "url": "https://github.com/RomanFrom710/renty/issues"
   },
   "homepage": "https://github.com/RomanFrom710/renty#readme",
-  "dependencies": {},
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-jest": "^21.15.1"
   },
-  "private": true,
-  "workspaces": [
-    "src/renty-config",
-    "src/renty-core",
-    "src/renty-db"
-  ],
-  "babel": {
-    "plugins": [
-      [
-        "transform-es2015-modules-commonjs"
-      ]
-    ]
-  }
+  "private": true
 }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
 
-import saveApartment from '../utils/saver';
+import {Apartment, Snapshot} from '../db';
 
 /**
  * Parser should convert page url content into apartment object.
@@ -47,11 +47,17 @@ export default class BaseParser {
    * @param {Object} apartment Apartment to be saved.
    * @returns {Promise} Saver result.
    */
-  saveApartment(apartment) {
-    try {
-      return saveApartment(apartment);
-    } catch (err) {
-      // todo: log error
+  async saveApartment(apartment) {
+    const existingApartment = await Apartment.find({url: apartment.url});
+    if (!existingApartment) {
+      return Apartment.create(apartment);
     }
+
+    await Snapshot.create({
+      apartmentId: existingApartment._id,
+      value: existingApartment,
+    });
+
+    return Apartment.update(apartment, {runValidators: true});
   }
 }

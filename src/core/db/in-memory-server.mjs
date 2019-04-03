@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import MongodbMemoryServer from 'mongodb-memory-server';
 
-import {env} from 'renty-config';
+import {env} from '../config';
 
 class InMemoryServer {
   /**
