@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import timestamps from 'mongoose-timestamp';
 
-import {features} from '../enums';
+import {FEATURES} from '../../enums';
 
 const photoSchema = new mongoose.Schema({
   origin: String,
@@ -14,7 +14,7 @@ const apartmentSchema = new mongoose.Schema({
   url: {type: String, required: true},
   site: {type: String, required: true},
   address: {type: String, required: true},
-  features: {type: [String], enum: Object.values(features)},
+  features: {type: [String], enum: Object.values(FEATURES)},
 
   photos: [photoSchema],
   author: String,

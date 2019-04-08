@@ -4,7 +4,7 @@
   "description": "Core package with parsing",
   "scripts": {
     "test": "jest",
-    "test:integration": "jest integration",
+    "test:integration": "jest .+\\.integration",
     "test:unit": "jest unit"
   },
   "author": "Roman Chaley",
@@ -14,26 +14,12 @@
     "cheerio": "^1.0.0-rc.2",
     "convict": "^4.4.1",
     "mongoose": "^5.4.21",
-    "mongoose-timestamp": "^0.6.0",
-    "renty-db": "0.0.1"
+    "mongoose-timestamp": "^0.6.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-jest": "^22.4.3",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
-    "jest": "^22.4.3",
-    "mongodb-memory-server": "^4.2.1"
-  },
-  "jest": {
-    "testMatch": [
-      "<rootDir>/tests/**"
-    ],
-    "moduleFileExtensions": [
-      "mjs",
-      "js"
-    ],
-    "transform": {
-      "\\.mjs$": "babel-jest"
-    }
+    "jest": "^22.4.3"
   }
 }

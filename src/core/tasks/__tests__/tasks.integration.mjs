@@ -1,13 +1,9 @@
-import {inMemoryServer, enums, Task} from 'renty-db';
-import * as tasksQueue from '../tasks';
-
-// May require additional time for downloading MongoDB binaries
-beforeAll(() => inMemoryServer.connect(), 180000);
-
-afterAll(() => inMemoryServer.disconnect());
+import {Task} from '../../db';
+import {TASK_CONSUMER} from '../../enums';
+import * as tasksQueue from '../';
 
 const testTask = {
-  consumer: enums.taskConsumer.parser,
+  consumer: TASK_CONSUMER.parser,
   payload: {url: 'http://google.com'},
   priority: 42,
 };
@@ -52,7 +48,7 @@ describe('tasks queue', () => {
 
   describe('takeTask', () => {
     it('returns null if there is no tasks left', async () => {
-      const task = await tasksQueue.takeTask(enums.taskConsumer.scanner);
+      const task = await tasksQueue.takeTask(TASK_CONSUMER.scanner);
       expect(task).toBeNull();
     });
 
@@ -62,7 +58,7 @@ describe('tasks queue', () => {
         Object.assign({}, testTask, {createdAt: new Date('2017'), priority: 1}),
         Object.assign({}, testTask, {createdAt: new Date('2016'), priority: 1}),
         Object.assign({}, testTask, {createdAt: new Date('2017'), priority: 2}),
-        Object.assign({}, testTask, {createdAt: new Date('2017'), priority: 3, consumer: enums.taskConsumer.scanner}),
+        Object.assign({}, testTask, {createdAt: new Date('2017'), priority: 3, consumer: TASK_CONSUMER.scanner}),
       ];
       await Task.create(tasks);
 

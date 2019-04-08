@@ -1,6 +1,6 @@
 import convict from 'convict';
 
-export const config = convict({
+export default convict({
   env: {
     doc: 'The application environment',
     format: ['production', 'development', 'test'],

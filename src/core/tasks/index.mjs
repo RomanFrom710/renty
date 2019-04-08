@@ -1,4 +1,5 @@
-import {Task, enums} from 'renty-db';
+import {Task} from '../db';
+import {TASK_STATUS} from '../enums';
 
 /**
  * Adds task to the queue. If a task with the same payload has been already inserted,
@@ -32,7 +33,7 @@ export async function insertTask(consumer, payload, priority = 1) {
  */
 export function takeTask(consumer) {
   const query = {consumer};
-  const update = {status: enums.taskStatus.open};
+  const update = {status: TASK_STATUS.open};
   const options = {
     sort: {priority: -1, createdAt: 1},
     lean: true,

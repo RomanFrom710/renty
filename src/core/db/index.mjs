@@ -1,18 +1,8 @@
 import mongoose from 'mongoose';
 
-import {env, config} from 'renty-config';
-import * as enums from './enums';
-import inMemoryServer from './in-memory-server';
+import config from '../config';
 
-// Test scripts may want to use temporary in-memory database.
-if (!env.isTest()) {
-  const connectionString = config.get('db');
-  mongoose.connect(connectionString);
-}
-
-export {
-  enums,
-  inMemoryServer,
-};
+const connectionString = config.get('db');
+mongoose.connect(connectionString);
 
 export * from './models';

@@ -1,18 +1,18 @@
-const taskConsumer = {
+const TASK_CONSUMER = {
   parser: 'parse-worker',
   scanner: 'scan-worker',
 };
 
-const taskStatus = {
+const TASK_STATUS = {
   open: 'open',
   inProgress: 'in-progress',
   success: 'success',
   fail: 'fail',
 };
 
-const features = {
+const FEATURES = {
   furniture: 'furniture',
-  kitchenFurniture: 'kitchenFurniture',
+  kitchenFurniture: 'kitchen-furniture',
   stove: 'stove',
   fridge: 'fridge',
   washer: 'washer',
@@ -22,4 +22,4 @@ const features = {
   conditioning: 'conditioning',
 };
 
-export {taskConsumer, taskStatus, features};
+export {FEATURES, TASK_CONSUMER, TASK_STATUS};
