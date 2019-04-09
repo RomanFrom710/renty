@@ -1,108 +1,38 @@
 module.exports = {
-  "env": {
-    "es6": true,
-    "node": true,
-    "jest": true
+  env: {
+    es6: true,
+    node: true,
+    jest: true
   },
-  "extends": "airbnb-base",
-  "parserOptions": {
-    "sourceType": "module"
+  extends: 'airbnb-base',
+  parserOptions: {
+    sourceType: 'module'
   },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [".js", ".mjs"]
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.mjs']
       }
     }
   },
-  "plugins": [],
-  "rules": {
-    "arrow-parens": [
-      "error",
-      "always"
-    ],
+  rules: {
+    'class-methods-use-this': 'off',
 
-    "import/extensions": [
-      "error",
-      "always",
-      {
-        "js": "never",
-        "mjs": "never",
-      }
-    ],
+    'no-underscore-dangle': ['error', {allow: ['_id']}], // mongodb _id field
 
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true,
-        "optionalDependencies": true,
-        "peerDependencies": false
-      }
-    ],
+    "no-unused-vars": [ 
+      'error', 
+      { 
+        args: 'all', 
+        argsIgnorePattern: '^__', 
+        varsIgnorePattern: '^__', 
+      } 
+    ], 
 
-    "indent": [
-      "error",
-      2
-    ],
+    'max-len': ['error', {code: 120}],
 
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
+    'object-curly-spacing': 'off',
 
-    "quotes": [
-      "error",
-      "single"
-    ],
-
-    "semi": [
-      "error",
-      "always"
-    ],
-
-    "curly": 2,
-
-    "no-this-before-super": 2,
-
-    "arrow-spacing": 2,
-
-    "prefer-spread": 2,
-
-    "object-curly-spacing": [
-      2,
-      "never"
-    ],
-
-    "no-throw-literal": 1,
-
-    "no-use-before-define": 0,
-
-    "arrow-body-style": 0,
-
-    "no-console": 0,
-
-    "no-global-assign": 0,
-    "no-unsafe-negation": 0,
-
-    "new-cap": [
-      2,
-      {
-        "newIsCap": true,
-        "capIsNew": false
-      }
-    ],
-
-    "no-unused-vars": [
-      2,
-      {
-        "args": "all",
-        "argsIgnorePattern": "^__",
-        "varsIgnorePattern": "^__"
-      }
-    ],
-
-    "no-underscore-dangle": ["error", { "allow": ["_id"] }], // mongodb _id field
-
-    "class-methods-use-this": 0, // stupid rule
+    'import/no-useless-path-segments': ['error', {noUselessIndex: true}],
   }
 };

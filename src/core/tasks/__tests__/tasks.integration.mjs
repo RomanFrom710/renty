@@ -1,6 +1,6 @@
 import {Task} from '../../db';
 import {TASK_CONSUMER} from '../../enums';
-import * as tasksQueue from '../';
+import * as tasksQueue from '..';
 
 const testTask = {
   consumer: TASK_CONSUMER.parser,

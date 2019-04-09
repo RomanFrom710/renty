@@ -21,5 +21,11 @@
     "url": "https://github.com/RomanFrom710/renty/issues"
   },
   "homepage": "https://github.com/RomanFrom710/renty#readme",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.4.1"
+  }
 }

@@ -15,5 +15,5 @@ export default async function (pageNumber = 1) {
   };
 
   const response = await axios.get(baseUrl, {params});
-  return response.data.apartments.map((ap) => ap.url);
+  return response.data.apartments.map(ap => ap.url);
 }
