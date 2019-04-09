@@ -4,22 +4,20 @@
   "description": "Core package with parsing",
   "scripts": {
     "test": "jest",
-    "test:integration": "jest .+\\.integration",
+    "test:integration": "jest .+\\.integration --no-cache --runInBand",
     "test:unit": "jest unit"
   },
   "author": "Roman Chaley",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
-    "cheerio": "^1.0.0-rc.2",
+    "cheerio": "^1.0.0-rc.3",
     "convict": "^4.4.1",
-    "mongoose": "^5.4.21",
+    "esm": "^3.2.22",
+    "mongoose": "^5.5.0",
     "mongoose-timestamp": "^0.6.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-jest": "^22.4.3",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
-    "jest": "^22.4.3"
+    "jest": "^24.7.1"
   }
 }

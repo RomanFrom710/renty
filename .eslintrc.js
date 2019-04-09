@@ -8,13 +8,6 @@ module.exports = {
   parserOptions: {
     sourceType: 'module'
   },
-  settings: {
-    'import/resolver': {
-      node: {
-        extensions: ['.js', '.mjs']
-      }
-    }
-  },
   rules: {
     'class-methods-use-this': 'off',
 
@@ -31,7 +24,7 @@ module.exports = {
 
     'max-len': ['error', {code: 120}],
 
-    'object-curly-spacing': 'off',
+    'object-curly-spacing': ['error', 'never'],
 
     'import/no-useless-path-segments': ['error', {noUselessIndex: true}],
   }
